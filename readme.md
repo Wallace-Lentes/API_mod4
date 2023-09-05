@@ -1,0 +1,3 @@
+- express instalado
+- chalk instalado
+- nodemon instalado
