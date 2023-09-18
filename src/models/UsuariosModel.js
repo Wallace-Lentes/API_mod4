@@ -1,5 +1,5 @@
 class UsuariosModel{
-    constructor(id, nome, email, senha, telefone, cpf, cep, numero){
+    constructor(id, nome, email, senha, telefone, cpf, cep, numeroEnd){
         this.id = id
         this.nome = nome
         this.email = email
@@ -7,7 +7,7 @@ class UsuariosModel{
         this.telefone = telefone
         this.cpf = cpf
         this.cep = cep
-        this.numero = numero
+        this.numeroEnd = numeroEnd
     }
 }
 export default UsuariosModel

@@ -1,4 +1,3 @@
-import MateriaisDAO from "../DAO/MateriaisDAO.js";
 import UsuariosDAO from "../DAO/UsuariosDAO.js";
 
 class UsuarioValidacaoServices {

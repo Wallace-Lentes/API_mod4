@@ -1,6 +1,6 @@
 import UsuariosModel from "../models/UsuariosModel.js";
 import UsuariosDAO from "../DAO/UsuariosDAO.js";
-import ValidacaoServices from "../services/ValidacaoServices.js";
+import ValidacaoServices from "../services/ReciclavelValidacaoServices.js";
 
 class UsuariosController {
     static rotas(app) {
@@ -45,6 +45,8 @@ class UsuariosController {
                     })
                 }
             }
+        })
+
             app.put("/usuarios/:id", async (req, res) => {
                 const usuarioId = req.params.id
                 const body = req.body
@@ -66,7 +68,8 @@ class UsuariosController {
                     })
                 }
 
-            },
+            })
+
             app.delete("/usuarios/:id", async (req, res) => {
                 const usuarioId = req.params.id
                 const isValid = ValidacaoServices.validaId(id)
@@ -83,3 +86,6 @@ class UsuariosController {
             }
             )
         }
+    }
+    
+export default UsuariosController;

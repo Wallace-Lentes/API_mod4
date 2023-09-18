@@ -2,6 +2,7 @@ import sqlite3 from "sqlite3";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
+
 /**
  * Torna as ações do SQLite (erros, inserções, ...) legiveis no terminal
  */
