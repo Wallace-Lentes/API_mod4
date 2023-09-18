@@ -44,9 +44,9 @@ VALUES
 function criaTabelaProdutos(){
     Database.run(PRODUTOS_TABLE, (error)=> {
         if (error) {
-            console.log("Erro ao criar Tabela")
+            console.log("Erro ao criar Tabela Produtos")
         } else {
-            console.log("Tabela criada com sucesso!")
+            console.log("Tabela Produtos criada com sucesso!")
         }
     });
 }
@@ -54,14 +54,58 @@ function criaTabelaProdutos(){
 function populaTabelaProdutos() {
     Database.run(ADD_PRODUTOS_DATA, (error)=> {
         if (error) {
-            console.log("Erro ao popular tabela")
+            console.log("Erro ao popular Tabela Produtos")
         } else {
-            console.log("Tabela populada com sucesso!")
+            console.log("Tabela Produtos populada com sucesso!")
         }
     });
 }
 
+function criaTabelaHistorico() {
+    Database.run(HISTORICO_TABLE, (error)=> {
+        if (error) {
+            console.log("Erro ao criar Tabela Historico")
+        } else {
+            console.log("Tabela Historico criada com sucesso")
+        }
+    })
+}
+
+function populaTabelaHistorico() {
+    Database.run(ADD_HISTORICO_DATA, (error)=> {
+        if (error) {
+            console.log(" Erro ao popular a Tabela Historico")
+        } else {
+            console.log("Tabela Historico populada com sucesso")
+        }
+    })
+}
+
+function criaTabelaCarrinho() {
+    Database.run(CARRINHO_TABLE, (error)=> {
+        if (error) {
+            console.log("Erro ao criar a Tabela Carrinho")
+        } else {
+            console.log("Tabela Carrinho criada com sucesso")
+        }
+    })
+}
+
+function populaTabelaCarrinho() {
+    Database.run(ADD_CARRINHO_DATA, (error)=> {
+        if (error) {
+            console.log(" Erro ao popular a Tabela Carrinho")
+        } else {
+            console.log("Tabela Carrinho populada com sucesso!")
+        }
+    })
+}
+
 Database.serialize(()=>{
     criaTabelaProdutos();
+    criaTabelaHistorico();
+    criaTabelaCarrinho();
     populaTabelaProdutos();
+    populaTabelaHistorico();
+    populaTabelaCarrinho();
 })

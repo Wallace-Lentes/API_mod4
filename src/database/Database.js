@@ -8,14 +8,8 @@ import { fileURLToPath } from "url";
  */
 sqlite3.verbose()
 
-/**
- * Aponta o caminho onde será salvo o arquivo database.db
- */
 const filePath = dirname(fileURLToPath(import.meta.url)) + "/database.db"
 
-/**
- * Inicializa o banco de dados SQLite
- */
 const Database = new sqlite3.Database(filePath)
 
 export default Database
