@@ -38,7 +38,7 @@ VALUES
 const ADD_CARRINHO_DATA = `
 INSERT INTO CARRINHO (PRODUTO, VALORTOTAL, RESUMOCOMPRA, VALORTROCA)
 VALUES
-    ("Papel", "1.00", "Folhas de papel", "3kg por 100 unidades")
+    ("Papel", "1.00", "Folhas de papel", "3.00")
 `
 
 function criaTabelaProdutos(){
