@@ -2,8 +2,8 @@ import express from "express";
 import MaterialRecController from "./src/controllers/MaterialRecController.js";
 import UsuariosController from "./src/controllers/UsuariosController.js";
 import ProdutosController from "./src/controllers/produtoController.js";
-import HistoricoController from "./src/controllers/HistoricoController.js";
 import CarrinhoController from "./src/controllers/carrinhoController.js";
+import HistoricoController from "./src/controllers/historicoController.js";
 
 const app = express()
 const port = process.env.PORT || 3000
