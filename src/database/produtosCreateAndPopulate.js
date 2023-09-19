@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS "PRODUTOS" (
 const HISTORICO_TABLE = `
 CREATE TABLE IF NOT EXISTS "HISTORICO" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "PRODUTO" varchar(100)
+    "PRODUTO" varchar(100),
     "QUANTIDADE" INT,
     "CREDITO" INT
 );
@@ -28,17 +28,17 @@ CREATE TABLE IF NOT EXISTS "CARRINHO" (
 const ADD_PRODUTOS_DATA = `
 INSERT INTO PRODUTOS (NOME, DESCRICAO, PRECO)
 VALUES
-    (Papel, Folhas de papel de qualquer tamanho e formato, 1.00)
+    ("Papel", "Folhas de papel de qualquer tamanho e formato", "1.00")
 `
 const ADD_HISTORICO_DATA = `
 INSERT INTO HISTORICO (PRODUTO, QUANTIDADE, CREDITO)
 VALUES
-    (Papel, 3kg, 100 unidades)
+    ("Papel", "3kg", "100 unidades")
 `
 const ADD_CARRINHO_DATA = `
 INSERT INTO CARRINHO (PRODUTO, VALORTOTAL, RESUMOCOMPRA, VALORTROCA)
 VALUES
-    (Papel, 1.00, Folhas de papel, 3kg por 100 unidades)
+    ("Papel", "1.00", "Folhas de papel", "3kg por 100 unidades")
 `
 
 function criaTabelaProdutos(){
