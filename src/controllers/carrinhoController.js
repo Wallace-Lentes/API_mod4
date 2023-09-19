@@ -1,4 +1,4 @@
-import produtosdao from "./dao/produtosdao.js"; 
+import CarrinhoDAO from "../DAO/CarrinhoDAO.js"
 
 class CarrinhoController{ 
 
@@ -6,10 +6,10 @@ class CarrinhoController{
 
         app.get('/carrinho', async(req,res) =>{
 
-            const carrinho = await carrinhodao.buscarNoCarrinho()
+            const carrinho = await CarrinhoDAO.buscarNoCarrinho()
             console.log(carrinho)
-            res.status(200).json(pcarrinho)
+            res.status(200).json(carrinho)
         })
     }
 }
-export default carrinhoController
+export default CarrinhoController

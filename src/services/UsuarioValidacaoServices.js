@@ -54,3 +54,4 @@ class UsuarioValidacaoServices {
         return isValid
     }
 }
+export default UsuarioValidacaoServices

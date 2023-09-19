@@ -1,4 +1,4 @@
-import produtosdao from "./dao/produtosdao.js"; 
+import HistoricoDAO from "../DAO/HistoricoDao.js"
 
 class HistoricoController{ 
 
@@ -6,10 +6,10 @@ class HistoricoController{
 
         app.get('/historico', async(req,res) =>{
 
-            const historico = await historicodao.buscarTodosOsHistoricos()
+            const historico = await HistoricoDAO.buscarTodosOsHistoricos()
             console.log(historico)
             res.status(200).json(historico)
         })
     }
 }
-export default historicoController
+export default HistoricoController

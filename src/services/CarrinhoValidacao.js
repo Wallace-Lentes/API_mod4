@@ -1,8 +1,8 @@
-import ProdutosDAO from "../DAO/ProdutosDao.js";
+import ProdutosDAO from "../DAO/ProdutosDAO.JS"
 
 class CarrinhoValidacao{
     static ValidarCarrinho(id){
-        const Carrinho = ProdutosDao.buscarnoCarrinhoPorId(id)
+        const Carrinho = ProdutosDAO.buscarnoCarrinhoPorId(id)
         if(Carrinho){
             return true 
         }else{
@@ -20,13 +20,13 @@ class CarrinhoValidacao{
     static validaResumoCompra(resumoCompra){
         return typeof resumoCompra == "string" && resumoCompra.length > 2
     }
-    static validaCredito(credito){
-        if (typeof credito !== 'number' || credito < 0) {
-            throw new Error('O credito deve ser um número não negativo.');
+    static validaValorTrocaId(valorTrocaId){
+        if (typeof valorTrocaId !== 'number' || valorTrocaId < 0) {
+            throw new Error('O valorTrocaId deve ser um número não negativo.');
         }
     }
-    static validaCamposCarrinho(produto, valorTotal, resumoCompra, credito){
-        const isValid = this.validaProduto(produto) && this.validaValorTotal(valorTotal) && this.validaResumoCompra(resumoCompra) && this.validaCredito(credito)
+    static validaCamposCarrinho(produto, valorTotal, resumoCompra, valorTrocaId){
+        const isValid = this.validaProduto(produto) && this.validaValorTotal(valorTotal) && this.validaResumoCompra(resumoCompra) && this.validavalorTrocaId(valorTrocaId)
         return isValid
     }
 }

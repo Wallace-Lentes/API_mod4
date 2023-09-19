@@ -1,11 +1,11 @@
 class TabelaCarrinho {
 
-    constructor(produtos, resumoDaCompra, creditos, logicaTroca){
+    constructor(produto, resumoCompra, valorTotal, valorTrocaId){
 
-        this.produtos = produtos
-        this.resumoDaCompra = resumoDaCompra
-        this.creditos = creditos
-        this.logicaTroca = logicaTroca
+        this.produto = produto
+        this.resumoCompra = resumoCompra
+        this.valorTotal = valorTotal
+        this.valorTrocaId = valorTrocaId
     }
 }
 export default TabelaCarrinho

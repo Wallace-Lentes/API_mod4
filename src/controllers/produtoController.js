@@ -1,4 +1,4 @@
-import produtosdao from "./dao/produtosdao.js"; 
+import ProdutosDAO from "../DAO/ProdutosDAO.js"
 
 class ProdutosController{ 
 
@@ -6,10 +6,10 @@ class ProdutosController{
 
         app.get('/produtos', async(req,res) =>{
 
-            const produto = await produtosdao.buscarTodosOsProdutos()
+            const produto = await ProdutosDAO.buscarTodosOsProdutos()
             console.log(produto)
             res.status(200).json(produto)
         })
     }
 }
-export default produtoController
+export default ProdutosController

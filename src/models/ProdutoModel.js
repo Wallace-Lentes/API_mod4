@@ -5,7 +5,6 @@ class TabelaProduto {
             this.nome = nome
             this.descricao = descricao
             this.preco = preco
-            this.imagem = imagem
     }
 }
 
