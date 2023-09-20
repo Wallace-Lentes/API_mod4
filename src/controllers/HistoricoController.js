@@ -1,4 +1,4 @@
-import HistoricoDAO from "../DAO/HistoricoDao.js"
+import HistoricoDAO from "../DAO/HitoricoDAO.js"
 
 class HistoricoController{ 
 
