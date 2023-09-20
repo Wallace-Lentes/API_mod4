@@ -21,7 +21,7 @@ Antes de iniciar, verifique se você possui as seguintes tecnologias instaladas 
 ## Como clonar o Projeto: 🌵
 
 1. Abra o terminal e clone o prjeto com o comando:
-- Git Clone ´https://github.com/Wallace-Lentes/API_mod4.git´
+- Git Clone `https://github.com/Wallace-Lentes/API_mod4.git`
 2. Entre no diretório:
 - Cd API_mod4
 3. Instalação das Dependências com o comando:
