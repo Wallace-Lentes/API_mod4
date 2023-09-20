@@ -1,4 +1,4 @@
-# Ecomart 🌿
+# API Ecomart 🌿
 
 Bem-vindo ao repositório da Ecomart
 
@@ -42,6 +42,11 @@ O projeto conta com 5 entidades, que são:
 - Usuarios 
 
 Exemplo de como são apresentadas: 
+
+- node `".\src\database\produtosCreateAndPopulate.js"`cria a parte do carrinho, historico e produto.
+- node `".\src\database\populacaoMaterial.js"`cria dos materiais.
+- node `".\src\database\usuariosCreatePop.js"`cria dos usuarios
+
 
 ## tecnologias Utilizadas: 📌
 
