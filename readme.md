@@ -15,17 +15,19 @@ Antes de iniciar, verifique se você possui as seguintes tecnologias instaladas 
 - VSCode
 - Node.js
 - Insomnia
+- Caso não tenha instalado o Node.js, click aqui para baixa-lo [node.js](https://nodejs.org/pt-br/download) e utilize o arquivo LTS.
+- Caso não tenha instalado o Insomnia, click aqui para baixa-lo [Insomnia](https://insomnia.rest/download) e faça o Download
 
 ## Como clonar o Projeto: 🌵
 
 1. Abra o terminal e clone o prjeto com o comando:
-- Git Clone https://github.com/Wallace-Lentes/API_mod4.git
+- Git Clone ´https://github.com/Wallace-Lentes/API_mod4.git´
 2. Entre no diretório:
 - Cd API_mod4
 3. Instalação das Dependências com o comando:
 - npm install
 4. Rode o projeto com:
-- 
+- npm start
 
 ## Como Rodar o Projeto na sua Maquina: 🍀
 
@@ -47,6 +49,10 @@ Exemplo de como são apresentadas:
 - Express
 - Sqlite3
 - Insomnia
+
+## Contribuição: ✅
+
+Contribuições são bem-vindas! Se você tiver melhorias ou correções, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 ## Referências: ✅
 
