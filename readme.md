@@ -25,9 +25,9 @@ Antes de iniciar, verifique se você possui as seguintes tecnologias instaladas 
 2. Entre no diretório:
 - Cd API_mod4
 3. Instalação das Dependências com o comando:
-- npm install
+- `npm install`
 4. Rode o projeto com:
-- npm start
+- `npm start`
 
 ## Como Rodar o Projeto na sua Maquina: 🍀
 
@@ -43,9 +43,9 @@ O projeto conta com 5 entidades, que são:
 
 Exemplo de como são apresentadas: 
 
-- node `".\src\database\produtosCreateAndPopulate.js"`cria a parte do carrinho, historico e produto.
-- node `".\src\database\populacaoMaterial.js"`cria dos materiais.
-- node `".\src\database\usuariosCreatePop.js"`cria dos usuarios
+- node `".\src\database\produtosCreateAndPopulate.js"`cria a tabela carrinho, historico e produto.
+- node `".\src\database\populacaoMaterial.js"`cria a tabela materiais.
+- node `".\src\database\usuariosCreatePop.js"`cria a tabela usuarios.
 
 
 ## tecnologias Utilizadas: 📌
