@@ -14,6 +14,7 @@ Antes de iniciar, verifique se você possui as seguintes tecnologias instaladas 
 
 - VSCode
 - Node.js
+- Insomnia
 
 ## Como clonar o Projeto: 🌵
 
@@ -28,17 +29,31 @@ Antes de iniciar, verifique se você possui as seguintes tecnologias instaladas 
 
 ## Como Rodar o Projeto na sua Maquina: 🍀
 
+## Banco de Dados:  🪴
+
+O projeto conta com 5 entidades, que são:
+
+- Carrinho 
+- Historico
+- Materiais Reciclaveis 
+- Produtos
+- Usuarios 
+
+Exemplo de como são apresentadas: 
+
 ## tecnologias Utilizadas: 📌
 
 - Node.js
 - Express
 - Sqlite3
+- Insomnia
 
 ## Referências: ✅
 
 - [Documentação Node](https://nodejs.org/en/)
 - [Documentação Sqlite3](https://www.sqlite.org/docs.html)
 - [Documentação Express](https://expressjs.com/pt-br/)
+- [Documentação Insomnia](https://insomnia.rest/)
 
 ## Projeto desenvolvido por:
 
