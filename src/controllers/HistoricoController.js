@@ -12,4 +12,4 @@ class HistoricoController{
         })
     }
 }
-export default HistoricoController
+export default HistoricoController 
