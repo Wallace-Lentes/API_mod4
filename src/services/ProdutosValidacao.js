@@ -1,9 +1,9 @@
-import ProdutosDAO from "../DAO/ProdutosDao.js";
+import ProdutosDAO from "../DAO/ProdutosDAO.js";
 
 class ProdutosValidacao{
     static validaId(id){
         const produtos = ProdutosDAO.buscarProdutosPorId(id)
-        if(Produtos){
+        if(produtos){
             return true 
         }else{
             return false 
