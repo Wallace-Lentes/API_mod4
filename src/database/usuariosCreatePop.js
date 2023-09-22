@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS "USUARIOS" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT, 
     "NOME" varchar (100), 
     "EMAIL" varchar (100),
-    "SENHA" varchar(100),
     "TELEFONE" int,
     "CPF" int,
     "CEP" int,
@@ -16,7 +15,7 @@ CREATE TABLE IF NOT EXISTS "USUARIOS" (
 const ADD_USUARIOS_DATA = `
 INSERT INTO USUARIOS (NOME, EMAIL, SENHA, TELEFONE, CPF, CEP, NUMEROEND)
 VALUES 
-        ("Leonardo Silva", "leozinho@email.com", "123456", "42987646372", "78273928342", "865345149", "283");
+        ("Leonardo Silva", "leozinho@email.com", "42987646372", "78273928342", "865345149", "283");
 `
 
 
