@@ -15,19 +15,19 @@ Antes de iniciar, verifique se você possui as seguintes tecnologias instaladas 
 - VSCode
 - Node.js
 - Insomnia
+- Caso não tenha instalado, click aqui para baixa-lo [node.js](https://nodejs.org/pt-br/download) 
+- - Caso não tenha instalado, click aqui para baixa-lo [Insomnia](https://insomnia.rest/download)
 
 ## Como clonar o Projeto: 🌵
 
 1. Abra o terminal e clone o prjeto com o comando:
-- Git Clone https://github.com/Wallace-Lentes/API_mod4.git
+- Git Clone `https://github.com/Wallace-Lentes/API_mod4.git`
 2. Entre no diretório:
 - Cd API_mod4
 3. Instalação das Dependências com o comando:
 - npm install
 4. Rode o projeto com:
-- 
-
-## Como Rodar o Projeto na sua Maquina: 🍀
+- `npm start`
 
 ## Banco de Dados:  🪴
 
@@ -40,6 +40,9 @@ O projeto conta com 5 entidades, que são:
 - Usuarios 
 
 Exemplo de como são apresentadas: 
+- node `".\src\database\produtosCreateAndPopulate.js"` cria a parte do carrinho, historico e produto.
+- node `".\src\database\populacaoMaterial.js"` cria dos materiais.
+- node `".\src\database\usuariosCreatePop.js"` cria dos usuarios
 
 ## tecnologias Utilizadas: 📌
 
@@ -54,6 +57,10 @@ Exemplo de como são apresentadas:
 - [Documentação Sqlite3](https://www.sqlite.org/docs.html)
 - [Documentação Express](https://expressjs.com/pt-br/)
 - [Documentação Insomnia](https://insomnia.rest/)
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você tiver melhorias ou correções, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 ## Projeto desenvolvido por:
 
