@@ -39,7 +39,35 @@ O projeto conta com 5 entidades, que são:
 - Produtos
 - Usuarios 
 
-Exemplo de como são apresentadas: 
+# Exemplos de Uso
+- Listar todos os usuários:
+GET http://localhost:3000/usuarios
+
+- Criar um novo usuário:
+POST http://localhost:3000/usuarios
+{
+"nome": "João",
+"email": "joao@email.com"
+}
+
+- Alterar alguma informação de um usuário específico: 
+PUT http://localhost:3000/usuarios/id
+{
+"nome": "Osvaldo",
+"email": "osvaldo@email.com"
+}
+
+- Alterar alguma informação específica de um usuário específico: 
+PATCH http://localhost:3000/usuarios/id
+{
+""nome": "Osvaldo da Silva",
+"email": "osvaldo@email.com"
+}
+
+- Deletar o usuário: 
+DELETE  http://localhost:3000/usuarios/id
+
+*Para utilizar as outras entidades, é só trocar o usuário pela entidade que gostaria
 
 ## tecnologias Utilizadas: 📌
 
