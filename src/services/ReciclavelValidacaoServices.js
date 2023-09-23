@@ -2,8 +2,8 @@ import MateriaisDAO from "../DAO/MateriaisDAO.js";
 
 
 class ValidacaoServices{
-    static validarExistencia(id){
-        const material = MateriaisDAO.buscarMateriaisPorId(id)
+    static async validarExistencia(id){
+        const material = await MateriaisDAO.buscarMateriaisPorId(id)
         if(material){
             return true
         }else{

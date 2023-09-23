@@ -13,12 +13,12 @@ class HistoricoValidacao{
         return typeof produto == "string" && produto.length > 2
     }
     static validaquantidade(quantidade){
-        if (typeof quantidade !== 'number' || quantidade < 0) {
+        if (typeof quantidade !== 'number' || quantidade > 0) {
             throw new Error('A quantidade deve ser um número não negativo.');
         }
     }
     static validaCredito(credito){
-        if (typeof credito !== 'number' || credito < 0) {
+        if (typeof credito !== 'number' || credito > 0) {
             throw new Error('O credito deve ser um número não negativo.');
         }
     }

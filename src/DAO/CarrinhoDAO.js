@@ -14,14 +14,35 @@ class CarrinhoDAO extends DAO {
     static async buscarNoCarrinho() {
         return await this.buscar(CARRINHO_TABLE)
     }
-    static buscarNoCarrinhoPorId(id) {
-        return this.buscarPorId(CARRINHO_TABLE, id)
+    static async buscarNoCarrinhoPorId(id) {
+        const query = `
+        SELECT * FROM CARRINHO where ID = ?;
+        `
+        try {
+            const response = await this.buscarPorId(query, id)
+            return response
+        } catch (error) {
+            throw error
+        }
     }
-    static deletarNoCarrinhoPorId(id) {
-        return this.deletarPorId(CARRINHO_TABLE, id)
+
+    static async deletarCarrinhoPorId(id) {
+        const query = "DELETE FROM CARRINHO WHERE ID = ?"
+        try {
+            await this.deletarPorId(query, id)
+        } catch (error) {
+            throw error
+        }
     }
-    static AtualizarNoCarrinhoPorId(id, data) {
-        this.AtualizarPorId(CARRINHO_TABLE, id, data)
+
+    static async AtualizarCarrinhoPorId(id, data) {
+        const query = "UPDATE CARRINHO SET (ID, PRODUTO, RESUMOCOMPRA, VALORTOTAL, VALORTROCAID) = (?,?,?,?,?) WHERE ID = ?"
+        const values = Object.values(data)
+        try {
+            await this.atualizarPorId(query, id, [id, ...values])
+        } catch (error) {
+            throw error
+        }
     }
 }
 export default CarrinhoDAO

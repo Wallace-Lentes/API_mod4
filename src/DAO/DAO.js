@@ -4,10 +4,10 @@ class DAO {
     static inserir(query, data) {
         return new Promise((resolve, reject) => {
             Database.run(query, ...data, (error) => {
-                if(error){
+                if (error) {
                     reject(error)
                 }
-                resolve({error:false})
+                resolve({ error: false })
             })
         })
     }
@@ -27,21 +27,44 @@ class DAO {
             })
         })
     }
-    static buscarPorId(entidade, id) {
-        if (Database[entidade] && Database[entidade][id]) {
-            return Database[entidade][id];
-        } else {
-            return null; // Ou outro valor padrão para indicar que o registro não foi encontrado
-        }
+    static buscarPorId(query, id) {
+        return new Promise((resolve, reject) => {
+            Database.get(query, [id], (error, rows) => {
+                if (error) {
+                    reject(error)
+                } else {
+                    if (!rows) {
+                        reject({ error: true})
+                    }
+                    resolve(rows)
+                }
+            })
+        })
     }
-    
-    
-    static deletarPorId(entidade, id) {
-        delete Database[entidade][id]
+
+
+    static deletarPorId(query, id) {
+        return new Promise((resolve, reject) => {
+            Database.all(query, id, (error, rows) => {
+                if (error) {
+                    reject(error)
+                } else {
+                    resolve(rows)
+                }
+            })
+        })
     }
-    static atualizarPorId(entidade, id, data) {
-        Database[entidade][id] = data
+    static atualizarPorId(query, id, data) {
+        return new Promise((resolve, reject) => {
+            Database.run(query, [...data, id], (error, rows) => {
+                if (error) {
+                    reject(error)
+                } else {
+                    resolve(rows)
+                }
+            })
+        })
     }
 }
 
-export default DAO;
+export default DAO

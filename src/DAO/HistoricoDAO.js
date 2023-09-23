@@ -8,20 +8,42 @@ class HistoricoDAO extends DAO {
         const query = `
         INSERT INTO HISTORICO (PRODUTO, QUANTIDADE, CREDITO) VALUES (?, ?, ?)
         `
-        const result = await this.inserirHistoricos(query, dataValues)
+        const result = await this.inserir(query, dataValues)
         return result
     }
     static async buscarTodosOsHistoricos() {
         return await this.buscar(HISTORICO_TABLE)
     }
-    static buscarHistoricoPorId(id) {
-        return this.buscarPorId(HISTORICO_TABLE, id)
+    static async buscarHistoricoPorId(id) {
+        const query = `
+        SELECT * FROM HISTORICO where ID = ?;
+        `
+        try {
+            const response = await this.buscarPorId(query, id)
+            return response
+        } catch (error) {
+            throw error
+        }
     }
-    static deletarHistoricoPorId(id) {
-        return this.deletarPorId(HISTORICO_TABLE, id)
+
+    static async deletarHistoricoPorId(id) {
+        const query = "DELETE FROM HISTORICO WHERE ID = ?"
+        try {
+            await this.deletarPorId(query, id)
+        } catch (error) {
+            throw error
+        }
     }
-    static AtualizarHistoricoPorId(id, data) {
-        this.AtualizarPorId(HISTORICO_TABLE, id, data)
+
+    static async AtualizarHistoricoPorId(id, data) {
+        const query = "UPDATE HISTORICO SET (ID, PRODUTO, QUANTIDADE, CREDITO) = (?,?,?,?) WHERE ID = ?"
+        const values = Object.values(data)
+        try {
+            await this.atualizarPorId(query, id, [id, ...values])
+        } catch (error) {
+            throw error
+        }
+
     }
 }
 export default HistoricoDAO

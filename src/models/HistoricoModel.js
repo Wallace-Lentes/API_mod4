@@ -1,9 +1,10 @@
 class TabelaHistorico {
 
-    constructor(entrada, saida){
+    constructor(produto, quantidade, credito){
 
-        this.entrada = entrada // tipo, kg.
-        this.saida = saida //qtd crédito
+        this.produto = produto 
+        this.quantidade = quantidade 
+        this.credito = credito
     }
 }
 

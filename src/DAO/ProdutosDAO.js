@@ -8,20 +8,42 @@ class ProdutosDAO extends DAO {
         const query = `
         INSERT INTO PRODUTOS (NOME, DESCRICAO, PRECO) VALUES (?, ?, ?)
         `
-        const result = await this.inserirProdutos(query, dataValues)
+        const result = await this.inserir(query, dataValues)
         return result
     }
     static async buscarTodosOsProdutos() {
         return await this.buscar(PRODUTOS_TABELA)
     }
-    static buscarProdutosPorId(id) {
-        return this.buscarPorId(PRODUTOS_TABELA, id)
+    static async buscarProdutosPorId(id) {
+        const query = `
+        SELECT * FROM PRODUTOS where ID = ?;
+        `
+        try {
+            const response = await this.buscarPorId(query, id)
+            return response
+        } catch (error) {
+            throw error
+        }
     }
-    static deletarProdutosPorId(id) {
-        return this.deletarPorId(PRODUTOS_TABELA, id)
+
+    static async deletarProdutosPorId(id) {
+        const query = "DELETE FROM PRODUTOS WHERE ID = ?"
+        try {
+            await this.deletarPorId(query, id)
+        } catch (error) {
+            throw error
+        }
     }
-    static AtualizarProdutosPorId(id, data) {
-        this.AtualizarPorId(PRODUTOS_TABELA, id, data)
+
+    static async AtualizarProdutosPorId(id, data) {
+        const query = "UPDATE PRODUTOS SET (ID, NOME, DESCRICAO, PRECO) = (?,?,?,?) WHERE ID = ?"
+        const values = Object.values(data)
+        try {
+            await this.atualizarPorId(query, id, [id, ...values])
+        } catch (error) {
+            throw error
+        }
+
     }
 }
 

@@ -1,4 +1,4 @@
-import ProdutosDAO from "../DAO/ProdutosDAO.JS"
+import ProdutosDAO from "../DAO/ProdutosDAO.js"
 
 class CarrinhoValidacao{
     static ValidarCarrinho(id){
