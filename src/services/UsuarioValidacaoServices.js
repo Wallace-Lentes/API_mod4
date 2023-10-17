@@ -1,5 +1,3 @@
-import UsuariosDAO from "../DAO/UsuariosDAO.js";
-
 class UsuarioValidacaoServices {
   
     static async validarId(id){
