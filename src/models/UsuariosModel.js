@@ -1,13 +1,15 @@
-class UsuariosModel{
-    constructor(id, nome, email, senha, telefone, cpf, cep, numeroEnd){
-        this.id = id
-        this.nome = nome
-        this.email = email
-        this.senha = senha
-        this.telefone = telefone
-        this.cpf = cpf
-        this.cep = cep
-        this.numeroEnd = numeroEnd
-    }
-}
-export default UsuariosModel
+import mongoose from 'mongoose'
+
+const Usuarios = mongoose.model('Usuarios', {
+
+    nome: String,
+    email: String,
+    senha: String,
+    telefone: String,
+    cpf: String,
+    cep: String,
+    numeroEnd: String
+
+})
+
+export default Usuarios

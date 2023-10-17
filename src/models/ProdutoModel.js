@@ -1,11 +1,11 @@
-class TabelaProduto { 
+import mongoose from 'mongoose'
 
-    constructor(id, nome, descricao, preco, imagem){ 
-            this.id = id
-            this.nome = nome
-            this.descricao = descricao
-            this.preco = preco
-    }
-}
+const Produto = mongoose.model('Produto', {
 
-export default TabelaProduto
+    nome: String,
+    descricao: String,
+    preco: String
+})
+ 
+
+export default Produto

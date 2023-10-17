@@ -1,11 +1,12 @@
-class TabelaCarrinho {
+import mongoose from 'mongoose'
 
-    constructor(produto, resumoCompra, valorTotal, valorTrocaId){
+const Carrinho = mongoose.model('Carrinho',{
 
-        this.produto = produto
-        this.resumoCompra = resumoCompra
-        this.valorTotal = valorTotal
-        this.valorTrocaId = valorTrocaId
+        produto: String,
+        resumoCompra: String,
+        valorTotal: String,
+        valorTrocaId: String
     }
-}
-export default TabelaCarrinho
+)
+
+export default Carrinho

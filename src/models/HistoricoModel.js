@@ -1,11 +1,13 @@
-class TabelaHistorico {
+import mongoose from 'mongoose'
 
-    constructor(produto, quantidade, credito){
+const Historico =mongoose.model('Historico', {
+    
+            produto: String,
+            quantidade: String, 
+            credito: String
 
-        this.produto = produto 
-        this.quantidade = quantidade 
-        this.credito = credito
-    }
-}
+})
 
-export default TabelaHistorico
+   
+
+export default Historico

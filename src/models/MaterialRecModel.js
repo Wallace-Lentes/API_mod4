@@ -1,8 +1,10 @@
-class MaterialRecModel {
-    constructor(tipoLixo, quantidade, peso){
-        this.tipoLixo = tipoLixo
-        this.quantidade = quantidade
-        this.peso = peso
-    }
-}
-export default MaterialRecModel
+import mongoose from 'mongoose'
+
+const Material = mongoose.model('Material', {
+
+    tipoLixo: String,
+    quantidade: String,
+    peso: String
+})
+
+export default Material
