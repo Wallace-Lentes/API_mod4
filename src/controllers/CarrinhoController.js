@@ -1,24 +1,26 @@
-import CarrinhoDAO from "../DAO/CarrinhoDAO.js"
-import TabelaCarrinho from "../models/CarrinhoModel.js"
 import CarrinhoValidacao from "../services/CarrinhoValidacao.js"
-
+import CarrinhoRepository from "../Repository/CarrinhoRepository.js"
 class CarrinhoController {
 
     static rotas(app) {
 
         app.get('/carrinho', async (req, res) => {
-
-            const carrinho = await CarrinhoDAO.buscarNoCarrinho()
-            console.log(carrinho)
-            res.status(200).json(carrinho)
+            try {
+                const carrinho = await CarrinhoRepository.buscarTodosOsCarrinhos()
+                res.status(200).json(erro.message)
+                
+            } catch (error) {
+                
+                res.status(404).json(erro.message)                
+            }
         })
-
-
+        
+        
         app.post("/carrinho", async (req, res) => {
             try {
-                CarrinhoValidacao.validaCamposCarrinho(req.body.produto, req.body.valortotal, req.body.resumocompra, req.body.valortrocaid)
+                CarrinhoValidacao.validaCarrinho(req.body.produto, req.body.valortotal, req.body.resumocompra, req.body.valortrocaid)
                 const carrinho = req.body
-                const inserir = await CarrinhoDAO.inserirnoCarrinho(carrinho)
+                const inserir = await CarrinhoRepository.criarCarrinho(carrinho)
                 res.status(201).json({ inserir, message: "Novo carrinho adicionado!" })
             } catch (erro) {
                 res.status(400).json({ error: true, message: `Campos invalidos` })
@@ -27,8 +29,8 @@ class CarrinhoController {
 
         app.get("/carrinho/:id", async (req, res) => {
             try {
-                const carrinho = await CarrinhoDAO.buscarNoCarrinhoPorId(req.params.id)
-                if (!carrinho) {
+                const carrinho = await CarrinhoRepository.buscarCarrinhoPorId(req.params.id)
+                if (!carrinho_id) {
                     throw new Error("Id do carrinho está inválido ou não cadastrado")
                 }
                 res.status(200).json(carrinho)
@@ -36,33 +38,33 @@ class CarrinhoController {
                 res.status(404).json({ message: erro.message, id: req.params.id })
             }
         })
+        
         app.delete("/carrinho/:id", async (req, res) => {
             const id = req.params.id
             try {
-                await CarrinhoValidacao.ValidarCarrinho(id)
-                CarrinhoDAO.deletarNoCarrinhoPorId(id)
-                res.status(200).json({ error: false })
+                const carrinho = await CarrinhoValidacao.buscarCarrinhoPorId(id)
+                if(!carrinho._id) {
+                    throw new Erro("Carrinho não encontrado")
+                }
+                const resposta = await CarrinhoRepository.deletaCarrinhoPorId(id)
+
+                res.status(200).json(resposta)
             } catch (error) {
                 res.status(404).json({ id: id, ...error })
             }
         })
 
-        app.put("/carrinho/:id", async (req, res) => {
+        app.patch("/carrinho/:id", async (req, res) => {
             const id = req.params.id
-            const body = req.body
+            const entries = Object.entries(req.body)
             try {
-                CarrinhoValidacao.validaCamposCarrinho(body.produto, body.valortotal, body.resumocompra, body.valortrocaid)
-                await CarrinhoValidacao.ValidarCarrinho(id)
-                const carrinhoModelado = new TabelaCarrinho(body.produto, body.valortotal, body.resumocompra, body.valortrocaid)
-                CarrinhoDAO.AtualizarcarrinhoPorId(id, carrinhoModelado)
-                res.status(204).json()
+                const carrinho = req.body
+                await CarrinhoValidacao.validaAtualizacaoCarrinho(entries)
+                const resposta = await CarrinhoRepository.AtualizaCarrinhoPorId(id, carrinho)
+                res.status(200).json(resposta)
             } catch (error) {
-                if (error.message == "Campos invalidos") {
-                    res.status(400).json({ error: error.message })
-                } else {
-                    res.status(404).json({ id: id, ...error })
-                }
-            }
+                res.status(400).json({ message: erro.message, id })
+                } 
         })
     }
 }
