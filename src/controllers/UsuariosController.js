@@ -25,16 +25,44 @@ class UsuariosController {
             }
         })
 
-        app.post("/usuarios", async (req, res) => {
-            try {
-                UsuarioValidacaoServices.validaArgumentosUsuarios(req.body.nome, req.body.email, req.body.senha, req.body.telefone, req.body.cpf, req.body.cep, req.body.numeroend)
-                const usuario = req.body
-                const inserir = await UsuariosRepository.criarUsuario(usuario)
-                res.status(201).json({inserir, message: "Novo usuario adicionado!"})
-            } catch (erro) {
-                res.status(400).json({error: true, message: `Campos invalidos` })
+        app.post("/usuarios", (req, res) => {
+            const db = router.db;
+            const { nome, sobrenome, cpf, email, telefone, cep, rua, numero} = req.body;
+          
+            const senha = req.get("X-Password");
+          
+            const existingUser = db.get("usuarios").find({ email: email }).value();
+          
+            if (existingUser) {
+              return res
+                .status(400)
+                .json({ message: "Email já cadastrado.", success: false });
             }
-        })
+            const id = crypto.createHash("md5").update(`${Date.now()}`).digest("hex");
+            const transacoes = [];
+          
+            const newUser = { id, nome, sobrenome, cpf, email, telefone, cep, rua, numero };
+            db.get("usuarios").push(newUser).write();
+          
+            res.status(201).json({
+              success: true,
+              message: "usuario criado com sucesso",
+              data: { id, nome },
+            });
+          });
+
+
+        // app.post("/usuarios", async (req, res) => {
+        //     const {nome, sobrenome, cpf, email, telefone, cep, rua, numero }
+        //     try {
+        //         UsuarioValidacaoServices.validaArgumentosUsuarios(req.body.nome, req.body.email, req.body.senha, req.body.telefone, req.body.cpf, req.body.cep, req.body.numeroend)
+        //         const usuario = req.body
+        //         const inserir = await UsuariosRepository.criarUsuario(usuario)
+        //         res.status(201).json({inserir, message: "Novo usuario adicionado!"})
+        //     } catch (erro) {
+        //         res.status(400).json({error: true, message: `Campos invalidos` })
+        //     }
+        // })
         
         app.delete("/usuarios/:id", async (req, res) => {
             const id = req.params.id
