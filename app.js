@@ -22,7 +22,7 @@ const DATABASE = process.env.DATABASE || "local"
 const PASSWORD = process.env.PASSWORD || "local"
 const CLUSTER = process.env.CLUSTER || "local"
 
-mongoose.connect(`mongodb+srv://${USER_DB}:${PASSWORD}@${CLUSTER}.${DATABASE}.mongodb.net/`)
+mongoose.connect(process.env.MONGODB_URL)
 .then(()=>{
 app.listen(port, () => {
   console.log(`Servidor rodando`)
