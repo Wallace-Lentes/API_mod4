@@ -7,9 +7,9 @@ class UsuariosController {
         app.get("/usuarios", async (req, res) => {
             try {
                 const usuario = await UsuariosRepository.buscarTodosOsUsuarios()
-                res.status(200).json(erro.message)                
+                res.status(200).json(usuario)                
             } catch (error) {
-                res.status(404).json(erro.message)                
+                res.status(404).json(error.message)                
             }
         })
       

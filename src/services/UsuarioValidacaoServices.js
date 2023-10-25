@@ -1,4 +1,3 @@
-import UsuariosDAO from "../DAO/UsuariosDAO.js";
 
 class UsuarioValidacaoServices {
   

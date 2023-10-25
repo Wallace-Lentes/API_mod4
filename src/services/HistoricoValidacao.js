@@ -1,8 +1,6 @@
-import ProdutosDAO from "../DAO/ProdutosDAO.js";
 
 class HistoricoValidacao{
     static validaHistorico(id){
-        const historico = ProdutosDAO.buscarHistoricoPorId(id)
         if(historico){
             return true 
         }else{

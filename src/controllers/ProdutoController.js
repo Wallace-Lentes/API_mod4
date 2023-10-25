@@ -1,5 +1,5 @@
 import ProdutosValidacao from "../services/ProdutosValidacao.js"
-import ProdutosRepository from "../Repository/ProdutoRepository.js"
+import ProdutoRepository from "../Repository/ProdutoRepository.js"
 
 class ProdutosController{ 
 
@@ -11,7 +11,7 @@ class ProdutosController{
                 const produto = await ProdutoRepository.buscarTodosOsProdutos()
                 res.status(200).json(produto) 
             } catch (error) {
-                res.status(404).json(erro.message)  
+                res.status(404).json(error.message)  
             }
         })
 

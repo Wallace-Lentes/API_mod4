@@ -3,12 +3,15 @@ import mongoose from 'mongoose'
 const Usuarios = mongoose.model('Usuarios', {
 
     nome: String,
-    email: String,
-    senha: String,
-    telefone: String,
+    sobrenome: String,
     cpf: String,
+    email: String,
+    telefone: String,
     cep: String,
-    numeroEnd: String
+    rua: String,
+    numero: String,
+    senha: String,
+    confirmaSenha: String
 
 })
 

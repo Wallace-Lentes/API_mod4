@@ -1,8 +1,6 @@
-import ProdutosDAO from "../DAO/ProdutosDAO.js"
 
 class CarrinhoValidacao{
     static ValidarCarrinho(id){
-        const Carrinho = ProdutosDAO.buscarnoCarrinhoPorId(id)
         if(Carrinho){
             return true 
         }else{
