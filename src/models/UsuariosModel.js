@@ -10,7 +10,7 @@ const UsuariosSchema = new mongoose.Schema({
         required: true
     },
     cpf: {
-        type: Number,
+        type: String,
         required: true
     },
     email: {
@@ -18,11 +18,11 @@ const UsuariosSchema = new mongoose.Schema({
         required: true
     },
     telefone: {
-        type: Number,
+        type: String,
         required: true
     },
     cep: {
-        type: Number,
+        type: String,
         required: true
     },
     rua: {
@@ -30,7 +30,7 @@ const UsuariosSchema = new mongoose.Schema({
         required: true
     },
     numero: {
-        type: Number,
+        type: String,
         required: true
     },
     senha: {
